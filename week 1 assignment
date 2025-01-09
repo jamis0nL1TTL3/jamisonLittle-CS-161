@@ -1,1 +1,61 @@
-all of week 1 assignments
+# part 1 of assignment
+# using f-string with 2 variables to write about my pet and their name
+pet_type = "basset hound"
+pet_name = "EZ"
+print (f"I have a {pet_type} and their name is {pet_name}.")
+print (f"   ")
+
+# part 2 of assignment
+# gave information for first print sentence, name, age, savings
+name = "Jamison"
+savings = "1000"
+# x is my initial value
+x = 18
+
+print (f"Hello {name}. You are currently {x} years old.")
+
+# now adding 10 to my initial value
+x += 10
+
+print (f"In ten years you will be {x} years old.")
+
+# using 'a' and 'b' variables to multiply my savings over the next 5 years
+a = 1000
+b = 5
+results = a * b
+
+print (f"If you save {savings} dollar for 5 years, you will then have {results} dollars.")
+
+# dividing savings with months to see average monthly savings
+numerator = 1000
+denominator = 12
+result = numerator / denominator
+
+print (f"Your average monthly saving are $ {result}.")
+print (f"    ")
+
+# part 3 of assignment
+# giving variables to multiply in order to get seconds in the month
+month = "January"
+days = "31"
+a = 31
+b = 24
+c = 60
+d = 60
+results = a * b * c * d
+
+print (f"In {month} there are {days} days. That means that there are {results} seconds in {month}.")
+print (f"    ")
+
+# part 4 of assignment
+# user can input any number turning that into variable 'num_1'
+user_input = input(f"Please enter a number: ")
+
+# 'num_1' then gets floor divided (//) and then calculates remainder (%)
+num_1 = int(user_input)
+num_2 = 12
+num_3 = num_1 // num_2
+
+num_4 = num_1 % num_2
+
+print (f"If you have {num_1} eggs, you'd have {num_3} dozen eggs and have {num_4} eggs left.")
