@@ -1,0 +1,63 @@
+# Part 1 of assignment
+# Setting two variables for f-string 
+pet_type = "basset hound"
+pet_name = "EZ"
+print (f"I have a {pet_type} and their name is {pet_name}.")
+print (f"   ")
+
+# Part 2 of assignment
+# Setting initial variables and values
+name = "Jamison"
+savings = "1000"
+
+# x = initial value
+x = 18
+
+print (f"Hello {name}. You are currently {x} years old.")
+
+# Add 10 to x
+x += 10
+
+print (f"In ten years you will be {x} years old.")
+
+# Then created variables for values I wanted to be multiplied
+a = 1000
+b = 5
+results = a * b
+
+print (f"If you save {savings} dollar for 5 years, you will then have {results} dollars.")
+
+# Divide the initial savings number by number of months to get the average monthly savings
+numerator = 1000
+denominator = 12
+result = numerator / denominator
+
+print (f"Your average monthly saving are $ {result}.")
+print (f"    ")
+
+# Part 3 of assignment
+# Created variables of current montha and adys in it
+# Created letter variables to calculate the seconds in January
+month = "January"
+days = "31"
+a = 31
+b = 24
+c = 60
+d = 60
+results = a * b * c * d
+
+print (f"In {month} there are {days} days. That means that there are {results} seconds in {month}.")
+print (f"    ")
+
+# Part 4 of assignment
+# User inputs any number which then becomes 'num_1'
+# 'num_1' then gets floor divided (//) by a dozen
+# '%' then finds the remainder
+user_input = input(f"Please enter a number: ")
+
+num_1 = int(user_input)
+num_2 = 12
+num_3 = num_1 // num_2
+num_4 = num_1 % num_2
+
+print (f"If you have {num_1} eggs, you'd have {num_3} dozen eggs and have {num_4} eggs left.")
