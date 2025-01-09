@@ -55,7 +55,6 @@ user_input = input(f"Please enter a number: ")
 num_1 = int(user_input)
 num_2 = 12
 num_3 = num_1 // num_2
-
 num_4 = num_1 % num_2
 
 print (f"If you have {num_1} eggs, you'd have {num_3} dozen eggs and have {num_4} eggs left.")
