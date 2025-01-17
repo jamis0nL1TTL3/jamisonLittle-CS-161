@@ -1,0 +1,113 @@
+##############################################################################
+# Assignment 2 TASK 1
+# User inputs variable then prints out decimal, binary, and hex equivalents
+
+user_input = input(f"Please enter a variable:")
+
+x = int(user_input)
+print (f"Decimal: {x}, Binary: {bin(x)}, Hexadecimal: {hex(x)}")
+print (f"")
+
+##############################################################################
+# Assignment 2 TASK 2
+# Make x value 1.825 and find the error that occurs, why does it occur? Change value to 18.
+# Error was due to the x value not being an integer (float), error highlighted 'bin(x)' because of this
+# User can pick num1 (1.825) or num2 (18) which will then be put into the dec, bin, and hex formula
+# Allows user to see error from num1 (1.825) and the answer for num2 (18)
+
+
+num_1 = 1.825
+num_2 = 18
+
+print (f"Please pick between the two options: 1) {num_1} or 2) {num_2}")
+choice = input(f"Enter 1 or 2: ")
+
+if choice == "1":
+    chosen_num = num_1
+elif choice == "2":
+    chosen_num = num_2
+else:
+    print ("Invalid choice. Defaulting to 2.")
+    chosen_num = num_2
+
+dec_val = chosen_num
+bin_val = bin(chosen_num)
+hex_val = hex(chosen_num)
+
+print (f"You chose: {chosen_num}")
+print (f"Decimal: {dec_val}")
+print (f"Binary: {bin_val}")
+print (f"Hexadecimal: {hex_val}")
+print (f"")
+
+##############################################################################
+# Assignment 2 TASK 3
+# Assigning a hex number and a binary number to a variable
+# When printing X and Y variables they print as their decimal value
+
+y = 0b1011
+z = 0xA3
+print (y, z)
+print (f"")
+
+##############################################################################
+# Assignment 2 TASK 4
+# Adding variables with given values to give final output as decimal number
+# The 3 variables are 1 decimal, 1 binary, and 1 hexadecimal
+
+x = 25
+y = 0b1001
+z = 0xff32
+w = x + y + z
+
+print (f"The sum is {w}")
+print (f"")
+
+##############################################################################
+# Assignment 2 COMPRESSION TASK 1
+# Calculates percentage of compression given the formula and assigned values
+# Prints compression percentage
+
+original_size = 240
+dictionary_size = 25
+compressed_text_size = 148
+percent_compression = 1 - ((compressed_text_size + dictionary_size) / original_size)
+percent_compression_final = percent_compression * 100
+print (f"{percent_compression_final}%")
+print (f"")
+
+##############################################################################
+# Assignment 2 COMPRESSION TASK 2
+# Calculates percentage of compression given the formula using variables with assigned values
+# Prints compression percentage
+
+original_size = 240
+dictionary_size = 25
+compressed_text_size = 148
+x = compressed_text_size
+y = dictionary_size
+z = original_size
+
+percent_compression = 1 - ((x + y) / z)
+percent_compression_final = percent_compression * 100
+
+print (f"{percent_compression_final}%")
+
+##############################################################################
+# Assignment 2 COMPRESSION TASK 3
+# Print results from compression percentage WITH percent sign using variable from users inputted values
+
+user_input = int(input(f"Enter original text size: "))
+user_put = int(input (f"Enter compressed text size: "))
+use_input = int(input (f"Enter dictionary size: "))
+
+x = user_input
+y = user_put
+z = use_input
+
+percent_compression = 1 - ((y + z) / x)
+percent_compression_final = percent_compression * 100
+
+print (f"{percent_compression_final}%")
+
+##############################################################################
