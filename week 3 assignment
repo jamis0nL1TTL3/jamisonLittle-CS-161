@@ -1,0 +1,63 @@
+##############################################################################
+# Assignment 3 TASK 1
+# Asks for input (name of user) then becoming the variable x
+# Variable is then used in the print function, printing "hello 'users names'"
+from enum import nonmember
+
+user_input = input(f"What is your name? ")
+
+x = user_input
+
+print (f"Hello" , x)
+
+##############################################################################
+# Assignment 3 TASK 2
+# User enters age and adds 5 years to it printing their future age
+# Error occurs because the numbers weren't labeled as integer
+# Correct code would be:
+
+user_input = int(input(f"What's you age? "))
+
+x = user_input
+
+print (x + 5)
+
+##############################################################################
+# Assignment 3 TASK 3
+# User inputs current age and added years to age
+# Gets added and printed in a str() function [inputs get combined in the print function due to the str()]
+
+current_age = int(input(f"What is your current age? "))
+years_added = int(input(f"How many years would you like to add to your age? "))
+
+future_age = current_age + years_added
+
+print (f"In " + str(years_added) + " years you will be " + str(future_age) + " years old.")
+
+##############################################################################
+# Assignment 3 TASK 4
+# User inputs hours worked and hourly wage, these are used as string functions that are multiplied and then stored in a variable [x]
+# Finally, the value of amount of money made throughout the week gets printed out using str(x)
+
+hours_worked = float(input(f"Please enter the amount of hours you've worked this week: "))
+hourly_wage = float(input(f"Please enter your hourly wage: "))
+
+x = hours_worked * hourly_wage
+
+print (f"Your gross pay this week is $" + str(x))
+
+##############################################################################
+# Assignment 3 TASK 5
+# Using str() functions calculate the gross weekly and estimated annual pay
+# After getting the week_pay value I multiplied by 52 [roughly 52 weeks a year] getting my estimated gross annual value
+# Once I got both values I use the str() to put them in 1 print function instead of several
+
+hours_worked = float(input(f"Please enter the amount of hours you've worked this week: "))
+hourly_wage = float(input(f"Please enter your hourly wage: "))
+
+week_pay = hours_worked * hourly_wage
+annual_pay = week_pay * 52
+
+print (f"Your gross pay this week is $" + str(week_pay) + ". Your estimated annual gross pay will be $" + str(annual_pay))
+
+##############################################################################
