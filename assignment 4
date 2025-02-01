@@ -1,0 +1,154 @@
+#########################################################################################
+# Assignment 4 TASK 1
+# Function adds 3 numbers and divides by 3 to get average
+# Docstring used to define function
+
+def average(num1:int, num2:int, num3:int) -> int:
+    return (num1 + num2 + num3)/3
+'''Adds numbers then divides by amount of numbers to get average
+
+Parameters:
+----------
+num1: int
+    first
+num2: int
+    second
+num3: int
+    third
+divides result by 3
+Results:
+-------
+sum of 3 numbers divided by 3
+'''
+print (average(3, 6, 4))
+print (average(8, 6, 4))
+
+#########################################################################################
+# Assignment 4 TASK 2
+# Question: would it print/run if the function was put after?
+# Answer: No, because the use of the function hasn't been defined before running the code
+# ERROR: name 'average' is not defined
+
+#########################################################################################
+# Assignment 4 TASK 3
+# Question: Will this script run?
+# Answer: No, because num1 isn't defined
+
+#########################################################################################
+# Assignment 4 TASK 4
+# Define a function that converts dog years to human years
+# Print function and be able to have it use float and integer
+
+def dog_human (dog_year:int)-> int:
+    return 24 + (dog_year - 2) * 4
+'''Calculates dogs age into human years
+
+Parameters:
+----------
+dog_year: int
+    first
+Results:
+-------
+dog_year is subtracted 2, multiplied by 4, then added 24
+'''
+
+dog_year = float(input(f"Enter your dogs age:"))
+
+print (f"{dog_year} dog years is equivalent to {dog_human(dog_year)} human years.")
+
+#########################################################################################
+# Assignment 4 TASK 5
+# Define a function that will calculate the value of a car
+
+import random
+def car_value_after_years (car_type:str, car_value:float, years_had:int) -> float:
+    if car_type.lower() == "german":
+        car_rate = 1 - 0.05
+    elif car_type.lower() == "japanese":
+        car_rate = 1 - 0.07
+    elif car_type.lower() == "italian":
+        car_rate = 1 + 0.05
+    else:
+        car_type = random.choice (["german", "japanese", "italian"])
+        print(f"Invalid car type, we will now randomly chose one for you! You got: {car_type}.")
+        car_rate = 1 - {"german": 0.05, "japanese": 0.07, "italian": - 0.05} [car_type]
+    return car_value * (car_rate ** years_had)
+'''Calculates the future cost of a car based on it's car type
+
+Parameters:
+----------
+car_type: str
+    The three car types are German, Japanese, and Italian, each of these car types have different gain/loss rate per year (can be seen as 'car_rate').
+car_value: float
+    Original purchase price of car
+years_had: int
+    The amount of years the car has been obtained by the user, or the amount of years the user wants to see their future car value
+
+Returns:
+-------
+str
+    returns users input result (german, japanese, italian, or random)
+float
+    contains original price
+int
+    contains years
+Multiplies the float (car_value) with the str rate (car_rate from car_type) and is raised to the integer (years_had)
+Prints out the final estimated values of the cars cost in (x)Years based on its car ype and original price
+'''
+
+car_type = input(f"Enter the type of car you have (german, japanese, or italian): ")
+car_value = float(input(f"Enter the original purchase price of car(don't include commas): "))
+years_had = int(input(f"Please enter how many years you have had the car/how many years from now: "))
+
+final_value = car_value_after_years (car_type, car_value, years_had)
+
+print (f"The price of your car after {years_had} years is approximately: ${final_value:.2f}")
+
+#########################################################################################
+# Assignment 4 TASK 6
+# Calculate users dogs human age BUT return the dogs name
+# Used a tuple inorder to return name of dog
+
+def dog_human (dog_name: str, dog_years: int)-> tuple:
+    human_age = 24 + (dog_years - 2) * 4
+    return dog_name, human_age
+'''Calculates the dogs age and returns their name
+
+Parameters:
+----------
+dog_name: str
+    User inputs dogs name, this allows it to be returned later on
+dog_years: int
+    User inputs dogs age which then gets calculated in human_age
+Returns:
+-------
+Prints dogs name and human age of dog
+'''
+dog_name = input(f"What is your dogs name? ")
+dog_years = int(input(f"How old is {dog_name}? "))
+
+name, age = dog_human (dog_name, dog_years)
+
+print (f"{name} is {age} years old in human years.")
+
+#########################################################################################
+# Assignment 4 TASK 7
+# Calculate the price of an ice cream cone
+
+def ice_price (scoop_number: int)-> float:
+    return (scoop_number * 1.15) + 2.25
+'''Calculates the price of an icecream cone based off of amount of scoops
+
+Parameters:
+----------
+scoop_number: int
+    User inputs integer for amount of scoops
+Results:
+-------
+Multiplies amount of scoops by 1.15 then adds 2.25'''
+
+scoop_number = int(input(f"How may scoops of ice cream would you like? "))
+
+print (f"A {scoop_number} scoop ice cream will be ${ice_price(scoop_number):.2f}")
+
+#########################################################################################
