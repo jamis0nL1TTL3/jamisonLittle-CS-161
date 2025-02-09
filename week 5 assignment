@@ -1,0 +1,185 @@
+############################################################################
+# Assignment 5 TASK 1
+# Get number from user input and see if it is divisible by 5
+
+def divisible_num (chosen_num: int):
+    '''calculates if inputted number is divisible by 5, equation used: (inputted number) % 5 (finding the remainder of
+    inputted number and 5) when it equals 0
+
+    Parameters:
+    ----------
+    chosen_num: int
+    User inputted number
+
+    Results:
+    -------
+    str:
+        if remainder is 0 it will print 'is divisible by 5'
+        if remainder is not 0 it will print 'is not divisible by 5'
+        '''
+    if chosen_num % 5 == 0 :
+        print (f"{chosen_num} is divisible by 5.")
+    else:
+        print (f"{chosen_num} is not divisible by 5.")
+
+chosen_num = int(input(f"Please enter any number: "))
+
+print (divisible_num(chosen_num))
+
+############################################################################
+# Assignment 5 TASK 2.1
+# Find the capital of states using if/elif/else statements
+# User will input state, state_cap function will search for inputted state
+# If function finds users inputted state it will print the capital
+# If function can't find users inputted state it will print else value
+
+def state_capital():
+    user_state = input(f"Please enter a state: ").title()
+    state = user_state
+    if state == 'Alabama':
+        print (f"Montgomery")
+    elif state == 'Colorado':
+        print (f"Denver")
+    elif state == 'Delaware':
+        print (f"Dover")
+    elif state == 'Florida':
+        print (f"Tallahassee")
+    elif state == 'Georgia':
+        print (f"Atlanta")
+    elif state == 'Washington':
+        print (f"Olympia")
+    else:
+        print (f"I just know you made that state up, maybe try a REAL one this time?")
+
+state_capital()
+
+############################################################################
+# Assignment 5 TASK 3.2
+# Find the capital of states using a dictionary
+# Users inputted state will be searched for in the function
+# When found it will print the capital
+# If not found it will print else value
+
+state_dict = {
+    "Alabama" : "Montgomery",
+    "Colorado" : "Denver",
+    "Delaware" : "Dover",
+    "Florida" : "Tallahassee",
+    "Georgia" : "Atlanta",
+    "Washington" : "Olympia",
+}
+
+
+def find_capital():
+    chosen_state = input(f"Please enter a state: ").title()
+    capital = state_dict.get(chosen_state)
+
+    if capital:
+        print(f"The capital of {chosen_state} is {capital}.")
+    else:
+        print(f"Your chosen state mustn't exist... Please try again!")
+
+find_capital()
+
+############################################################################
+# Assignment 5 TASK 3.3
+# Find a states capital using match case
+# Similar to the previous task functions will search for users inputted state
+# If found it will print users inputted states capital
+# If not found it will print case_ value
+
+def state_cap():
+    picked_state = input(f"Please enter a US state: ").strip().lower()
+    match picked_state:
+        case 'washington':
+            return "Olympia"
+        case 'california':
+            return "Sacramento"
+        case 'colorado':
+            return "Denver"
+        case 'idaho':
+            return "Boise"
+        case 'wyoming':
+            return "Cheyenne"
+        case 'michigan':
+            return "Lansing"
+        case _:
+            return "Oops, looks like we don't have that one... better luck next time"
+
+print(state_cap())
+
+############################################################################
+# Assignment 5 TASK 4
+# Find the entrance prices for a pool based on age using if/elif/else statements and document with docstrings
+
+def pool_admission(age: int)-> float:
+    '''Calculates the price (without dollar sign) of a pool entry fee based on your age, calculated by:
+     if the age is less than 2 the cost is free, if age less than 12 the cost is 3, if the age is less
+     than 60 the cost is 6, and if age is greater than 60 the cost is 4
+
+    Parameters:
+    -----------
+    age: int
+    age of the user
+
+    Returns:
+    -------
+    int:
+    based off of how old you are
+    '''
+    if (age < 2):
+        return 0
+    elif (age < 12):
+        return 3
+    elif (age < 60):
+        return 6
+    elif (age > 60):
+        return 4
+    else:
+        return print (f"I'm not sure how but you broke the system, I guess you don't have to pay anything (until we fix it!)")
+age = int(input(f"Please enter your age: "))
+print (pool_admission(age))
+
+############################################################################
+# Assignment 5 TASK 5
+# Determine how many times the string 160 appears in the HTML code for coccbobcat.com
+
+import requests
+
+url = "https://coccbobcat.com"
+
+try:
+    # Sends a GET request to fetch HTML contents
+    response = requests.get(url)
+
+    # Ensures contents were fetched successfully
+    response.raise_for_status()
+
+    # Gets the HTML as a string
+    html_content = response.text
+
+    # Counts the occurrence  of the string "160"
+    num_count = html_content.count("160")
+
+    print (f"The substring '160' appears times {num_count} in the HTML of {url}.")
+
+# If there's an error it will show what error occurred
+except response.exception.ResponseException as result_error :
+    print (f"An error has occurred: {result_error}")
+
+############################################################################
+# Assignment 5 TASK
+# Determine how many processes are running on your system
+
+import psutil
+
+# Gets the list of all processes
+processes = psutil.pids()
+
+# Counts the number of processes
+num_processes = len(processes)
+
+# Prints the results
+print (f"Number of running processes: {num_processes}")
+
+############################################################################
