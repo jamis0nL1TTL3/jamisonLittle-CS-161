@@ -1,0 +1,125 @@
+###################################################################################
+# Assignment 6 TASK 1
+# Have user input any number and have that number count down till 0 then printing BLASTOFF
+
+x = int(input(f"Please enter a number: "))
+while (x > 0):
+	print (x)
+	x = x - 1
+print (f"blastoff!!")
+
+###################################################################################
+# Assignment 6 TASK 2
+# Same as previous assignment but have it print whether the numbers counting down are even or odd
+
+
+x = int(input(f"Please input another number: "))
+# While x is greater than 0 and if the number can be divided by 2 with a remainder of 0 it will then print EVEN
+while (x > 0):
+    if x % 2 == 0:
+        print (f"{x} is an even number")
+# If number cannot be divided by 2 with a remainder of 0 then print ODD
+    else:
+        print (f"{x} is an odd number")
+# Users number will go down one by one till 0 then print BLASTOFF
+    x = x - 1
+print (f"blastoff!!")
+
+###################################################################################
+# Assignment 6 TASK 3
+# Similar to previous task but asks user for a number of decrease
+# Number of decrease will subtract that number (using 'dec_x') till it gets to 0 while deciding if the number is even or odd
+
+x = int(input(f"Please enter (yet again) another number: "))
+dec_x = int(input(f"Please enter a number of decrease: "))
+
+while (x > 0):
+    if x % 2 == 0:
+        print (f"{x} is an even number")
+    else:
+        print (f"{x} is an odd number")
+    x = x - dec_x
+
+###################################################################################
+# Assignment 6 TASK 4
+# Have user input a word, if the word it 5 letters then print back how many letters
+# If user inputs a word less then 5 letters than print, 'goodbye'
+
+while True:
+    word_pic = str(input(f"Please enter ANY word: ")) # word_pic is users input (their chosen word)
+# If the length of the word is greater than 5 characters it will print the users word, and it's character length
+    if len(word_pic) > 5:
+        print (f"{word_pic} is {len(word_pic)} letters.")
+# If the length of the word is NOT greater than 5 characters then print goodbye and breaks the loop
+    else:
+        print (f"goodbye.")
+        break
+
+###################################################################################
+# Assignment 6 TASK 5
+# Same as previous task but when the user gets to their fifth input function will print LOSER!
+
+tries = 0
+max_tries = 5
+
+while tries < max_tries:
+    word_pic = str(input(f"Please enter ANY word: "))
+    if len(word_pic) > 5:
+        print (f"{word_pic} is {len(word_pic)} letters.")
+    else:
+        print (f"goodbye.")
+        break
+    tries += 1
+
+if tries == max_tries:
+    print(f"LOSER!")
+
+###################################################################################
+# Assignment 6 TASK 6
+# Create a 'While' loop that counts from 10 to 100 in binary, hex, and decimal
+
+num = 10
+
+while num <= 100:
+    print (f"{num}, {bin(num)}, {hex(num)}")
+    num += 1
+
+###################################################################################
+# Assignment 6 TASK 7
+# Have user input num, num will print out number of stars and every time will print one fewer till it gets to 0
+# One function will use interation and another will use recursion
+
+star_num = int(input(f"Please enter your wanted numbers of stars: "))
+
+def star_inter (star_num):
+    while star_num > 0:
+        print ('*' * star_num)
+        star_num -= 1
+star_inter(star_num)
+
+def star_recur (star_num):
+    if star_num <= 0:
+        return
+    print ('*' * star_num)
+    star_recur(star_num - 1)
+star_recur(star_num)
+
+###################################################################################
+# EXTRA CREDIT
+# Use a recursive function to find out of users word is a palindrome
+
+def is_palin(word_pic):
+    if len(word_pic) <= 1:
+        return True
+    elif word_pic[0] == word_pic[-1]:
+        return is_palin(word_pic[1:-1])
+    return False
+
+word_pic = str(input(f"Can thou please enter a word: ")).lower()
+
+if is_palin(word_pic):
+    print(f"{word_pic} is a palindrome!")
+else:
+    print(f"{word_pic} is NOT a palindrome.")
+
+###################################################################################
