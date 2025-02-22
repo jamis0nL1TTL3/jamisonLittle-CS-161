@@ -1,0 +1,157 @@
+############################################################################
+# Assignment 7 TASK 1
+# Write a FOR or WHILE loop tht prints all even number between users 2 inputted values
+
+num_1 = int(input(f"Please enter a number (preferably a low number): "))    # Users first inputted number
+num_2 = int(input(f"Please enter a number higher than previous number: "))  # Users second inputted number
+
+def pos_nums (num_1:int, num_2:int):
+    even_num = []   # List to store all the even numbers
+    while num_1 <= num_2:
+        if num_1 % 2 == 0:  # If users first number can be divided by 2 with a remainder of zero...
+            even_num.append(num_1)  # Add that number to the even_num list
+        num_1 += 1  # Then add one to the first number and restart loop
+    return even_num   # Returns full list of even numbers
+
+even_num = pos_nums(num_1, num_2)   # Retrieve and call forward full list of numbers from function
+
+print (f"The even numbers between {num_1} and {num_2} are: {even_num}")   # Print full list in one line once
+
+############################################################################
+# Assignment 7 TASK 2
+# Write a WHILE loop that prints out all the factors of a given positive integer
+
+
+cho_int = int(input(f"Please enter a positive integer: "))  # Chosen integer from user
+fir_num = 1  # Starts at 1, 1 is always a factor
+
+def fin_fac (cho_int:int, fir_num:int):
+    fact_lis = []   # List to store all the factors of users number
+    while fir_num <= cho_int:   # Will loop through all the numbers till fir_num (1) then equals users inputted number
+        if cho_int % fir_num == 0:  # Will see if that number is a factor by taking users number divided by fir_num (which increases after ever loop by 1)
+            fact_lis.append(fir_num)    # Stores all numbers that can be divided and have 0 reminders, our found factors
+        fir_num += 1    # Adds one after every loop
+    return fact_lis   # Returns full list of factors
+
+fact_lis = fin_fac(cho_int, fir_num)    # Retrieves list of factors from the function
+
+print(f"The integers that are factors of {cho_int} are: {fact_lis}")    # Prints full list of factors in one line
+
+############################################################################
+# Assignment 7 TASK 3
+# Use a loop using iteration to calculate the sum of numeric value of your name
+
+alphabet_nums = {   # Dictionary of the letters and their numeric value
+    "a": 0,
+    "b": 1,
+    "c": 2,
+    "d": 3,
+    "e": 4,
+    "f": 5,
+    "g": 6,
+    "h": 7,
+    "i": 8,
+    "j": 9,
+    "l": 11,
+    "m": 12,
+    "n": 13,
+    "o": 14,
+    "p": 15,
+    "q": 16,
+    "r": 17,
+    "s": 18,
+    "t": 19,
+    "u": 20,
+    "v": 21,
+    "w": 22,
+    "x": 23,
+    "y": 24,
+    "z": 25
+}
+
+user_name = str(input(f"Please enter your name! ")).lower()   # Getting the users inputted name
+
+def get_val(user_name: str):
+    total = 0   # Initial value before calculation
+    for letter in user_name:    # Going through ever letter in string
+        if letter in alphabet_nums:   # Going to dictionary to see if letter is found
+            total += alphabet_nums[letter]    # Find numeric value per letter and adds it to total
+    return total    # Returns total sum of letters
+
+name_value = get_val(user_name)   # Retrieves sum from function
+print(f"The numeric value of the name '{user_name}' is : {name_value}")    # Prints sum of numeric value based on letters in name
+
+############################################################################
+# Assignment 7 TASK 4
+# Write a recursive function that find all given squares up to inputted number
+
+def num_squares (user_num, start_num = 1):
+    if start_num > user_num:    # If the start_num is suddenly larger than the users number it will return nothing
+        return
+    else:   # Otherwise, it will print out the start_num squared till it gets the to the user_num
+        print (start_num ** 2)
+        num_squares(user_num, start_num + 1)    # After squaring start_num it will then add 1 to it every time it is run
+
+user_num = int(input(f"Please enter a positive integer (preferably below 100): "))    # Getting the user_num
+
+num_squares(user_num)   # Prints function
+
+############################################################################
+# Assignment 7 TASK 5
+# Write a sort that will put integers from lowest to highest to lowest
+# Left side has the odd numbers while the right side has the even numbers
+
+def teepee_sort(unsorted_nums):
+    odd_nums = [num for num in unsorted_nums if num % 2 != 0]   # Goes through every number in unsorted_nums list and if not divisible by 2 then it will add that number to the odd_nums list
+    even_nums = [num for num in unsorted_nums if num % 2 == 0]    # Goes through every number in unsorted_nums list and if divisible by 2 it will be added to even_nums list
+
+    odd_nums.sort()   # Sorts the odd numbers from smallest to largest
+    even_nums.sort(reverse=True)    # Sorts even numbers from largest to smallest
+
+    return odd_nums + even_nums    # Returns combined lists with odd numbers first and even numbers following
+
+unsorted_nums = [24, 72, 95, 91, 13, 73, 47, 28, 85]    # Given numbers in an unsorted list
+sorted_list = teepee_sort(unsorted_nums)    # Retrieves sorted nums in order from function
+print(sorted_list)    # Prints list of now correctly ordered nums
+
+############################################################################
+# Assignment 7 TASK 6
+# Write an algorithm that will give the next highest value when given a number (using all numbers 0-9) once
+
+def swap_nums(given_num, left_side, right_side):
+    num_str = str(given_num)    # Turning the integer into a string
+    if len(num_str) < 2:    # If the number is less than two integers return the same number
+        return
+    else:   # Otherwise, keep everything before the first swapped digit (if there are numbers before), swap the second digit with the first digit, then keep everything after the second swapped digit (if there are numbers after)
+        swapped_str = num_str[:left_side] + num_str[right_side] + num_str[left_side] + num_str[right_side + 1:]
+        return int(swapped_str)    # Then return the swapped number as an integer
+
+
+def highest_num(given_num):
+    num_str = str(given_num)    # Turning the integer into a string
+
+    left_side = len(num_str) - 2    # Finding the length of the string and going to the second to last number (left side)
+    right_side = len(num_str) - 1   # Finding the length of the string and going to the last number (right side)
+
+    while True:    # When it is true that the integer is bigger than the original integer:
+        swapped_int = swap_nums(given_num, left_side, right_side)   # Make the swapped integer from swap_nums function into its own variable
+
+        if swapped_int > given_num:    # If the swapped integer number is bigger than the original number return that number
+            return swapped_int
+        else:   # Otherwise, when it's reached it's last number on the left it will print that the highest number has been reached
+            if left_side == 0:
+                print(f"You've reached the highest number!")
+                return given_num
+            # Until integer is bigger than original number subtract one to both the left side and right side
+            left_side -= 1
+            right_side -= 1
+
+
+given_num = 5612983470    # Given number
+high_num = 9876543210    # Highest number than can be achieved
+
+result_num = highest_num(given_num)   # Retrieving value from function
+
+print(f"Resulting num: {result_num}")   # Printing result
+
+############################################################################
