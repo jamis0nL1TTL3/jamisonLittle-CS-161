@@ -1,0 +1,163 @@
+#############################################################################################
+# Assignment 8 TASK 1A
+# Using users inputted word print once in CAPS LOCK and once in lower case
+
+word1 = str(input(f"Please enter any word!: "))   # Getting users input
+
+print(word1.upper())    # Printing users word in all upper case
+print(word1.lower())    # Printing users word in all lower case
+
+####
+# Assignment 8 TASK 1B
+# Using the '==' operand see whether the first and second word are equal to one another
+
+word1 = str(input(f"Please enter your first word: "))   # Users first word
+word2 = str(input(f"Please enter your second word: "))    # Users second word
+
+if word1 == word2:    # If the users first word is the same and the second given word...
+    print(f"True")   # Print true
+else:   # Otherwise print false
+    print(f"False")
+
+#############################################################################################
+# Assignment 8 TASK 1C
+# Ask the user for a phrase, then ask them to print the same phrase with caps lock
+# If phrase is the same then ask the user to stop shouting
+
+user_phrase = str(input(f"Would you please enter a phrase? ")).upper()    # Asking users for a phrase and making it turn into all upper case
+user_phrase2 = str(input(f"Perfect! Now can you please enter the same phrase in CAPS LOCK? "))    # Asking user to input same phrase in caps lock
+
+
+def return_yell(user_phrase, user_phrase2):
+    if user_phrase == user_phrase2:    # If the two phrases are the same ask the user to stop shouting (both phrases are put into upper case to see if they are equivalent
+        print(f"Okay, stop shouting please! jeez...")
+    else:   # Otherwise print:
+        print(f"Well, that was underwhelming...")
+
+return_yell(user_phrase, user_phrase2)    # Call function
+
+#############################################################################################
+# Assignment 8 TASK 2A
+# Pick a vowel and see how many times that vowel in present in users word
+
+users_word = str(input(f"Now, please enter any word thou shall think of: ")).lower()    # Ask user to input a word and turn it into lower case
+
+def letter_count (users_word):
+    count = 0   # The base case number of that vowel
+    if 'a' in users_word:     # If the letter 'a' is in the given word...
+        for letter in users_word:   # For everytime the letter is in the word ...
+            if letter == 'a':    # If the letter is equal to 'a'
+                count +=1     # Add one to the count
+        return count    # Return final count
+
+number_a = letter_count (users_word)    # Give variable to the value
+print (number_a)    # Print value (count)
+
+#############################################################################################
+# Assignment 8 TASK 2B
+# Count the amount of vowels in a word (a, e, i, o, and u)
+
+users_word = str(input(f"Please enter (yet again) another word!: "))    # Get users word
+
+
+def vowel_count(users_word):
+    count = 0   # Start vowel count at zero
+    vowels = 'aeiou'    # List of the vowels
+
+    for letter in users_word:   # For every letter in the given word...
+        if letter in vowels:    # If the letter equals any of the letters in my vowel list...
+            count += 1  # Add 1 to count
+    return count    # Return final count
+
+number_vowels = vowel_count(users_word)    # Give final count a variable name
+print(number_vowels)    # Print final count of vowels in word
+
+#############################################################################################
+# Assignment 8 TASK 3A
+# Using the '<,>' operands write a code that will say if the first word come before the second word alphabetically
+
+word_one = str(input(f"Please enter your first word: "))    # Get the first word from user
+word_two = str(input(f"please enter your second word: "))   # Get the second word from user
+
+def word_before (word_one, word_two):
+    return word_one > word_two  # Because python organizes the words alphabetically, it will return True or False for if the first word come first alphabetically
+
+print (word_before(word_one, word_two))    # Print result from function
+
+#############################################################################################
+# Assignment 8 TASK 3B
+# Write a code that will say which word from first alphabetically
+
+word_one = str(input(f"Please enter your first word: "))    # Getting users first word
+word_two = str(input(f"Please enter your second word: "))   # Getting users second word
+
+def before_word (word_one, word_two):
+    return word_one < word_two  # If the first word comes first in the alphabet (lower value) than the second word print True
+
+before_word(word_one, word_two)   # Call function forward
+
+if True:    # If true print that first word comes before second word
+    print (f"{word_one} comes before {word_two}")
+else:   # Otherwise, print that second word comes before first word
+    print (f"{word_two} comes before {word_one}")
+
+#############################################################################################
+# Assignment 8 TASK 4A
+# Using the '!=' operand write a code that will say two words are true if they don't equal one another and false if they do
+
+word_one = str(input(f"Please input a word: "))    # Getting users first word
+word_two = str(input(f"Please input a second word: "))     # Getting users second word
+
+def inequality_word(word_one, word_two):
+    return word_one != word_two    # Return true if words are different, return false if the words are the same
+
+answer_def = inequality_word(word_one, word_two)    # Give value a variable
+print(answer_def)   # Print value
+
+#############################################################################################
+# Assignment 8 TASK 4B
+# Ask the user to input their email, then re-enter email, if equal print thank you, if not ask user to re-enter email
+
+while True:
+    user_email = str(input(f"Please enter your email: "))   # Getting users email
+    user_email2 = str(input(f"Please re-enter your email: "))   # Re-getting users email
+
+    if user_email == user_email2:   # If the emails are the same print thank you
+        print(f"Thank you!")
+        break   # break the loop
+    else:   # Otherwise print that they don't match and restart while loop
+        print(f"You're emails don't match, please re-enter them:")
+
+#############################################################################################
+# Assignment 8 TASK 5A
+# Write a recursive and iterative code that will find the factorial of a given number and include the end time of both functions
+
+import time    # Import time module
+num = 9   # Set number to 9
+
+def interative_factorial(num):
+    result = 1  # start number is 1
+    for amount in range(2, num + 1):    # Looping everything from 2 up to given number + 1
+        result *= amount    # Multiply the results of current value of amount
+    return result   # Get results
+print (interative_factorial(num))   # Print results
+
+start_time = time.time()    # Start time before function starts
+interative_factorial(num)   # Call function
+end_time = time.time()      # End time when function finishes
+print (f"End time: {start_time - end_time}")    # Print end time (the time when it started minus the time it ended = total time function ran)
+
+
+def recursive_factorial(num):
+    if num == 0 or num == 1:    # If the given number is 0 or 1 print 1
+        return 1
+    return num * recursive_factorial(num - 1)   # Take the number multiplied by the number minus one
+
+print (recursive_factorial(num))    # Print results
+
+start_time = time.time()    # Start time before function starts
+recursive_factorial(num)    # Call function
+end_time = time.time()      # End time when function finishes
+print (f"End time: {start_time - end_time}")    # Print end time (the time when it started minus the time it ended = total time function ran)
+
+#############################################################################################
