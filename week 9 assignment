@@ -1,0 +1,79 @@
+###################################################################################################
+# Assignment 9 TASK 1
+# Write a program to create a class names 'Students' with attributes such as: name, age, and grade
+# Create two instances of students and print them
+
+class Students:   # Title class 'Students'
+    def __init__(self, name, age, grade):   # Create function with parent attributes
+        self.name = name    # Name attribute
+        self.age = age    # Age attribute
+        self.grade = grade    # Grade attribute
+    def access(self):   # Created an access method to obtain all the same attributes as the parent function
+        print ("Name:", self.name, "Age", self.age, "Grade:", self.grade)   # Print the name, age, and grade attributes
+
+kyle = Students("Kyle", "17", "11")   # Created an instance that includes all parent attributes
+dave = Students("Dave", "16", "11")   # Created an instance that includes all parent attributes
+
+kyle.access()   # Return and print 'kyle' instance filling in attributes when called in access function
+dave.access()   # Return and print 'dave' instance filling in attributes when called in access function
+
+###################################################################################################
+# Assignment 9 TASK 2
+# Create a class titled 'Teachers' and have two instances call the parent attributes
+# If attribute 'role' is 'teacher' they get added attribute called 'age'
+# If attribute 'role' isn't 'teacher' they do not get the added attribute
+# Side-note: I wanted to see if I could write it where one is a teacher and receives the 'age' attribute and one instance where they aren't a teacher and don't get the 'age' attribute, and it worked! I thought it was so fun to play with!
+
+class Teachers:   # Create class titled 'Teachers'
+    def __init__(self, name, age, role, department):   # Create parent function with parent attributes
+        self.name = name    # Name attribute
+        self.age = age    # Age attribute
+        self.role = role    # Role attribute
+        self.department = department    # Department attribute
+
+    def retrieve(self):   # Created a method that will call forward all the parent attributes though...
+        if self.role != "Teacher":   # If 'role' attribute is not equal to 'Teacher'...
+            print("Name:", self.name, "Role:", self.role, "Department:", self.department)   # It will print string that does not include 'age' attribute
+        else:   # Otherwise, it will always print all the parent attributes, including age
+            print ("Name:", self.name,  "Age:",   self.age, "Role:", self.role,   "Department:", self.department)
+
+
+terry = Teachers("Terry", "32", "Custodian", "Cleaning")   # Created an instance with all the parent attributes
+george = Teachers("George", "87", "Teacher", "Science")   # Created an instance with all the parent attributes
+
+terry.retrieve()   # Returns and prints the parent attributes besides 'age', due to the 'george' not being a teacher
+george.retrieve()   # Returns and prints all the parent attributes because this instance has the 'role' attribute equal to 'Teacher'
+
+###################################################################################################
+# Assignment 9 TASK 3
+# Write a class titled 'Square' and define two methods that return the square area and perimeter of the given length of a side
+# This code isn't meant to find the area to any other shape besides a square
+
+class Square:   # Create a class titled 'Square'
+    def __init__(self, shape, length, width):   # Create a parent function with the parent attributes, shape, length, and width
+        self.shape = shape   # Shape attribute
+        self.length = int(length)   # Length attribute that equals an integer
+        self.width = int(width)   # Width attribute that equals an integer
+
+    def area (self):    # Created a method that will find the area using the length and width attribute
+        print ("Area:", self.length * self.width)   # Prints the area
+
+    def perimeter (self):   # Created a method that wll find the perimeter using the length attribute times 4 (4 sides in a square)
+        print ("Perimeter:", self.length * 4)   # Prints the perimeter
+
+#    def area_peri (self):  # This was me playing with the code, putting the area and perimeter into one method instead of two
+ #       print ("Area:", self.length * self.width)   # Prints the area using the length and width attribute
+  #      print ("Perimeter:", self.length * 4)  # Prints the perimeter using the length attribute times 4
+
+
+square_1 = Square("square", "3", "3")   # Created an instance filling in the parent attributes
+square_2 = Square("square", "12", "5")   # Created an instance filling in the parent attributes
+
+square_1.area()   # Prints the first instances area
+square_1.perimeter()   # Prints the first instances perimeter
+#square_1.area_peri()   # Prints the first instances area and perimeter
+square_2.area()   # Prints the second instances area
+square_2.perimeter()   # Prints the second instances perimeter
+#square_2.area_peri()   # Prints the second instances area and perimeter
+
+###################################################################################################
