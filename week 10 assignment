@@ -1,0 +1,55 @@
+####################################################################################################################
+# Assignment 10 TASK 1
+# Create a class titled 'SolarObject' which includes attributes such as distance from the sun in au, spin, adn time it take to orbit whatever it's orbiting in days
+# Create a method called 'Colonization' for your parent class which calculates the potential colonization population based on distance from sun
+# This is done by dividing the default value (default = 6 billion) by the distance from the sun, and be sure to round answer
+# Create a method called 'Spin' for you parent class which just does a "pass"
+# Create two instances (Earth and Mars) where these inherit the parent class attributes, and using polymorphism planets always 'slightly spin elliptical'
+# Create a class for comets that will inherit all the attributes from the parent class but will use polymorphism for when the instance is a comet having the spin say 'like crazy'
+# Create two instances of comets (Halley Comet and Hale-Bopp) and print the instances showing orbital period in years
+
+class SolarObject:  #Created a parent class titled 'SolarObject'
+    def __init__(self, type, name, distance, orbit):    # Setting the parent classes attributes
+        self.type = type    # Type attribute
+        self.name = name    # Name attribute
+        self.distance = float(distance)   # Distance attribute in a float
+        self.orbit = orbit  # Orbit attribute
+
+    def get_spin (self):    # Created a method that will return "slightly elliptical" for its spin attribute
+    #    if self.type != "Planet":  # Originally used an if/else statement to tell whether to return 'slightly elliptical' or 'like crazy' based on the type floating rock it is
+    #        return "like crazy"
+    #    else:
+            return "slightly elliptical"    # Returns 'slightly elliptical' for spin attribute
+
+    def get_colonization (self):    # Created a method that will return the colonization population of the floating rock
+        result = 6/self.distance    # Set a variable equal to default colonization, 6 in this case, and dividing it by the distance from the sun
+        return round(result, 2)     # Returns the answer and rounds it to the hundredths place
+
+    def get_orbit (self):   # Create another method that will return the orbit in 'days'
+        return "days"   # Returns 'days'
+
+    def retrieve (self):    # Create a final method that calls forward all previous information (such as attributes and methods)
+        print (self.name, "is", self.distance, "au from the sun and spins", self.get_spin(), "and has an orbit of", self.orbit, self.get_orbit(), "and can support a population of:", self.get_colonization(), "billion")
+        # Prints the name of the floating rock, it's distance from the sun in astronomical units, gets its spin attribute, along with its orbit and how long in days it takes to complete that orbit with the population that floating rock could support
+
+class Comets(SolarObject):  # Created a subclass that inherits all the parent or 'super' classes attributes
+    def obtain_spin (self): # Created a method that will return a different spin attribute
+            return "like crazy" # Returns 'like crazy' for spin attribute
+
+    def obtain_orbit (self):    # Create another method that will change the orbit value into years (instead of days, as it was previously set in the parent class)
+        return "years"  # Returns 'years'
+
+    def access (self):  # Create a final method that will call forward all information (such as the parent/super classes attributes and new set attributes from the methods in the Comets class)
+        print (self.name, "is", self.distance, "au from the sun and spins", self.obtain_spin(), "and has an orbit of", self.orbit, self.obtain_orbit(), "and can support a population of:", self.get_colonization(), "billion")
+        # Prints the name of the floating rock, it's distance from the sun in astronomical units, gets its spin attribute, along with its orbit and how long in years it takes to complete that orbit with the population that floating rock could support
+
+
+earth = SolarObject("Planet", "Earth", 1, 365)  # Created an instance using information from the parent/super class
+hale_bopp = Comets("Comet", "Hale-Bopp", 186, 2533)  # Created an instance using information from the Comets class
+mars = SolarObject("Planet", "Mars", 1.52, 687)  # Created an instance using information from the parent/super class
+halley = Comets("Comet", "Halley", 35.3, 76)  # Created an instance using information from the Comets class
+
+earth.retrieve()   # Prints 'earth' instance's using the SolarObject class attributes and final string
+hale_bopp.access() # Prints 'hale-bopp' instance's using the Comets class attributes and final string
+mars.retrieve()    # Prints 'mars' instance's using the SolarObject class attributes and final string
+halley.access()    # Prints 'halley' instance's using the Comets class attributes and final string
